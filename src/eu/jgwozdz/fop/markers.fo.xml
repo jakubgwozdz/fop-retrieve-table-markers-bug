@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="content"
+                               page-height="29.7cm" page-width="21.0cm" margin="2cm">
+            <fo:region-body/>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+
+    <fo:page-sequence master-reference="content">
+        <fo:flow flow-name="xsl-region-body">
+
+            <!-- first, working fo:retrieve-table-marker in single table -->
+
+            <fo:block background-color="#CCFFCC" padding="1cm">
+                <fo:block>Single table with retrieve-table-markers:</fo:block>
+                <fo:table table-layout="fixed" width="100%" border="solid 2pt #000000">
+                    <fo:table-footer>
+                        <fo:table-row border-top="solid 1pt #000000"><fo:table-cell><fo:block>
+                                    footer with last table row: <fo:retrieve-table-marker retrieve-class-name="single-table-footer"
+                                                                              retrieve-position-within-table="last-ending"
+                                                                              retrieve-boundary-within-table="table"/>
+                        </fo:block></fo:table-cell></fo:table-row>
+                    </fo:table-footer>
+                    <fo:table-body>
+                        <fo:table-row><fo:table-cell>
+                            <fo:block>
+                                <fo:marker marker-class-name="single-table-footer"><fo:inline>row 1</fo:inline></fo:marker>
+                                <fo:block>row 1</fo:block>
+                            </fo:block>
+                        </fo:table-cell></fo:table-row>
+                        <fo:table-row><fo:table-cell>
+                            <fo:block>
+                                <fo:marker marker-class-name="single-table-footer"><fo:inline>row 2</fo:inline></fo:marker>
+                                <fo:block>row 2</fo:block>
+                            </fo:block>
+                        </fo:table-cell></fo:table-row>
+                        <fo:table-row><fo:table-cell>
+                            <fo:block>
+                                <fo:marker marker-class-name="single-table-footer"><fo:inline>row 3</fo:inline></fo:marker>
+                                <fo:block>row 3</fo:block>
+                            </fo:block>
+                        </fo:table-cell></fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+
+            <fo:block>&#xa0;</fo:block>
+
+            <fo:block background-color="#FFCCCC" padding="1cm">
+                <fo:block>Outer table with nested one:</fo:block>
+                <fo:table table-layout="fixed" width="100%" border="solid 2pt #000000">
+                    <fo:table-body>
+                        <fo:table-row><fo:table-cell padding="1cm">
+                            <fo:block >
+                                <fo:block>Inner table with retrieve-table-markers:</fo:block>
+                                <fo:table table-layout="fixed" width="100%" border="solid 2pt #000000">
+                                    <fo:table-footer>
+                                        <fo:table-row border-top="solid 1pt #000000">
+                                            <fo:table-cell>
+                                                <fo:block>
+                                                    footer with last table row: <fo:retrieve-table-marker retrieve-class-name="inner-table-footer"
+                                                                                                          retrieve-position-within-table="last-ending"
+                                                                                                          retrieve-boundary-within-table="table"/>
+                                                </fo:block>
+                                            </fo:table-cell>
+                                        </fo:table-row>
+                                    </fo:table-footer>
+                                    <fo:table-body>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-table-footer"><fo:inline>row 1</fo:inline></fo:marker>
+                                                <fo:block>row 1</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-table-footer"><fo:inline>row 2</fo:inline></fo:marker>
+                                                <fo:block>row 2</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-table-footer"><fo:inline>row 3</fo:inline></fo:marker>
+                                                <fo:block>row 3</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                    </fo:table-body>
+                                </fo:table>
+                            </fo:block>
+                        </fo:table-cell></fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+
+            <fo:block>&#xa0;</fo:block>
+
+            <fo:block background-color="#CCCCFF" padding="1cm">
+                <fo:block>Outer table with nested one:</fo:block>
+                <fo:table table-layout="fixed" width="100%" border="solid 2pt #000000">
+                    <fo:table-body>
+                        <fo:table-row><fo:table-cell padding="1cm">
+                            <fo:block>
+                                <fo:block>Inner table without retrieve-table-markers:</fo:block>
+                                <fo:table table-layout="fixed" width="100%" border="solid 2pt #000000">
+                                    <fo:table-footer>
+                                        <fo:table-row border-top="solid 1pt #000000">
+                                            <fo:table-cell>
+                                                <fo:block>
+                                                    footer with last table row: NO IDEA, fo:retrieve-table-marker is commented out
+                                                    <!--<fo:retrieve-table-marker retrieve-class-name="inner-2-table-footer"-->
+                                                                                                          <!--retrieve-position-within-table="last-ending"-->
+                                                                                                          <!--retrieve-boundary-within-table="table"/>-->
+                                                </fo:block>
+                                            </fo:table-cell>
+                                        </fo:table-row>
+                                    </fo:table-footer>
+                                    <fo:table-body>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-2-table-footer"><fo:inline>row 1</fo:inline></fo:marker>
+                                                <fo:block>row 1</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-2-table-footer"><fo:inline>row 2</fo:inline></fo:marker>
+                                                <fo:block>row 2</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                        <fo:table-row><fo:table-cell>
+                                            <fo:block>
+                                                <fo:marker marker-class-name="inner-2-table-footer"><fo:inline>row 3</fo:inline></fo:marker>
+                                                <fo:block>row 3</fo:block>
+                                            </fo:block>
+                                        </fo:table-cell></fo:table-row>
+                                    </fo:table-body>
+                                </fo:table>
+                            </fo:block>
+                        </fo:table-cell></fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+
+
+
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>
