@@ -17,3 +17,5 @@ it seems that valid fix would be to add something like this:
   }
 ```
 at apache's fop source /org/apache/fop/fo/flow/RetrieveTableMarker.java:104 
+
+reported under https://issues.apache.org/jira/browse/FOP-2763
